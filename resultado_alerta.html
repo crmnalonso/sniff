@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="resultado_alerta.css">
+
+<html>
+
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	
+	<h1>Resultado analisis</h1>
+	
+	<p>Incidente hallado</p>
+	<p>Abra el radar para mas detalles</p>
+	
+	<div class="radar">		<!-- abre la ventana del radar -->
+		<a href="#" class="btn_radar" onclick="location.href = 'radar_boton.html';">ABRIR RADAR</a>
+	</div>
+
+    <div class="cerrar">		<!-- cierra la ventana del resultado del analisis -->
+		<a href="#" class="btn_ignorar" onclick="location.href = 'boton2.html';">IGNORAR</a>
+	</div>
+	
+</body>
+
+</html>
+
+<script type="text/javascript">
+    	document.getElementsByClassName("btn_radar").onclick = function () {
+        	location.href = "radar_boton.html";
+    	};
+    	
+    	document.getElementsByClassName("btn_ignorar").onclick = function () {
+        	location.href = "boton2.html";
+    	};
+</script>

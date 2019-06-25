@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="resultado_principal.css">
+
+<html lang="es">
+<head>
+<script src="https://kit.fontawesome.com/2d8b91f482.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+</head>
+
+<body>
+	
+	<h1>Resultado analisis</h1>
+	
+	<article>
+	<p>Alimento</p>
+	<div id="alimento">
+      <!-- AQUI SALE EL ALIMENTO RANDOM -->
+    </div>
+    
+    <p>Estado</p>
+    <div id="estado">
+      <!-- AQUI SALE EL ESTADO RANDOM -->
+    </div>
+    </article>
+    
+    <div class="habla">
+		<button id=play><i class="fas fa-volume-up icon"></i></button>
+	</div>
+    
+    <div class="cerrar">		<!-- cierra la ventana del resultado del analisis -->
+		<a href="#" class="btn" onclick="location.href = 'boton.html';">CERRAR</a>
+	</div>
+	
+	<script type="text/javascript">
+    	document.getElementsByClassName("btn").onclick = function () {
+        	location.href = "boton.html";
+    	};
+	</script>
+	
+</body>
+
+</html>
+
+<script type="text/javascript">
+	var alimentos = [
+    	'Huevo',
+    	'Ternera',
+    	'Mayonesa',
+		'Pollo',
+    	'Merluza',
+    	'Conejo',
+		'Salmon',
+    	'Queso',
+    	'Leche',
+		'Esparrago',
+    	'Sandia',
+    	'Tomate',
+		'Yogur',
+    	'Pan'
+	]
+    var estados = [
+    	'No apto para el consumo.',
+    	'En buenas condiciones. Apto para el consumo.'
+	]
+
+	window.onload = function () {
+		document.getElementById("alimento").innerHTML = alimentos[Math.floor(Math.random()*alimentos.length)];
+		document.getElementById("estado").innerHTML = estados[Math.floor(Math.random()*estados.length)];
+		
+		if('speechSynthesis' in window) with(speechSynthesis){
+        var playEle = document.querySelector('#play');
+        playEle.addEventListener('click', onClickPlay);
+        
+        function onClickPlay() {
+                utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+                utterance.voice = getVoices()[0];
+                playEle.className = 'played';
+                speak(utterance);
+        }
+    }else { /* speech synthesis not supported */
+        msg = document.createElement('h5');
+        msg.textContent = "Detected no support for Speech Synthesis";
+        msg.style.textAlign = 'center';
+        msg.style.backgroundColor = 'red';
+        msg.style.color = 'white';
+        msg.style.marginTop = msg.style.marginBottom = 0;
+        document.body.insertBefore(msg, document.querySelector('div'));
+    }
+	}
+</script>

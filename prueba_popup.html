@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<script src="https://kit.fontawesome.com/2d8b91f482.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1>Mi lista de perfumes</h1>
+<ul id="myUl"></ul>
+
+<div class="cerrarlista">		<!-- cierra la ventana del resultado del analisis -->
+		<a href="#" class="btn" onclick="location.href = 'boton1.html';">CERRAR</a>
+</div>
+
+<div class="form-popup" id="myForm">
+  <form  class="form-container">
+    <h1>Resultado analisis</h1>
+    
+    <p>Perfume encontrado</p>
+
+    <div id="perfume">
+      <!-- AQUI SALE EL PERFUME RANDOM -->
+    </div>
+    
+    <div class="cerrar">
+    <button type="button" class="btn cancel" onclick="closeForm()">CERRAR</button>
+    </div>
+  </form>
+</div>
+
+<script>
+
+//LO DEL POP UP ------------------------------------------------------------------------
+var flag = localStorage.getItem('popup');
+if(flag.localeCompare('visible')){
+	//hay que poner el pop up con una clase que lo haga visible
+	document.getElementById("myForm").classList.remove('form-popup-escondido');
+	document.getElementById("myForm").classList.add('form-popup');
+	
+}
+if(flag.localeCompare('escondido')){
+	//hay que poner el pop up con una clase que lo esconda
+	document.getElementById("myForm").classList.remove('form-popup');
+	document.getElementById("myForm").classList.add('form-popup-escondido');
+	
+}
+//--------------------------------------------------------------------------------------
+
+//GENERAR RESULTADO RANDOM --------------------------------------------------------------
+	var perfumes = [
+		'CK ONE - Calvin Klein',
+    	'FOR HER - Narciso Rodriguez',
+    	'LA VIE EST BELLE - Lancome',
+		'BLACK OPIUM - Yves Saint Laurent',
+    	'1 MILLION - Paco Rabanne',
+    	'ESENCIA - Loewe',
+		'BE DELICIOUS - Donna Karan',
+		'HAPPY - Clinique',
+    	'BOSS BOTTLED - Hugo Boss',
+		'FLOWER - Kenzo'
+	]
+
+	window.onload = function () {
+		document.getElementById("perfume").innerHTML = perfumes[Math.floor(Math.random()*perfumes.length)];
+	}
+//--------------------------------------------------------------------------------------
+
+
+//GENERAR LA LISTA ---------------------------------------------------------------------
+var ul = document.getElementById("myUl");
+
+
+function remove() {
+  var task = this.event.currentTarget.parentNode;
+  ul.removeChild(task);
+  localStorage["listPerfumes"] = ul.innerHTML // updating localstorage
+}
+
+if (localStorage["listPerfumes"]) {
+  ul.innerHTML = localStorage["listPerfumes"];
+}
+//--------------------------------------------------------------------------------------
+
+
+function closeForm() {
+
+  var item = document.getElementById("perfume").innerHTML;
+  var itemTxt = document.createTextNode(item);
+  var li = document.createElement("li");
+  var btn = document.createElement("button");
+  btn.id = "put";
+  btn.className ="fas fa-trash-alt icon";
+  var btnx = document.createTextNode("");
+  
+  btn.setAttribute("onclick", "remove()");
+  btn.appendChild(btnx);
+  li.appendChild(itemTxt);
+  li.appendChild(btn);
+  ul.appendChild(li);
+  localStorage["listPerfumes"] = ul.innerHTML
+  
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+<style>
+
+html{
+	/*background-image: linear-gradient(green, black);*/
+	background-color:white;
+	height: 100%; /*para que se ajuste a la pantalla del móvil*/
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{ /*margen a 0 para que no quede borde blanco alrededor de la pagina*/
+	margin:0;
+}
+
+h1{
+	background-color: #b768a2;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-top:0;
+	text-align:center;
+	font-size:14pt;
+}
+
+p{
+	font-weight:600;
+}
+
+p, #perfume{
+	font-size:14pt;
+	margin-left:40px;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  width:100%;
+  height:100%;
+}
+
+.form-popup-escondido{
+	  display:none;
+}
+
+/* EL RECTANGULO QUE SALE AL PULSAR EL BOTON */
+.form-container {
+  width:100%;
+  height: 100%;
+  background-color: white;
+  
+}
+
+/* Full-width input fields ESTO ES EL RECUADRO GRIS PARA ESCRIBIR*/
+.form-container input[type=text]{
+  width: 100%;
+  height: 500px;
+  padding: 15px;
+  margin: 200px 0 100px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  display: inline-block;
+    text-decoration: none;
+    color: #56635D;
+    width: 200px;
+    height: 50px;
+    line-height: 120px;
+    border-radius: 18px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    font-size:20px;
+    line-height: 20px; /*el texto del boton centrado*/
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #876e7d 100%);
+    background-image: linear-gradient(#ada8b6 0%, #876e7d 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+#put{
+	font-size:20px;
+	padding:0px 0px 0px 300px; /*aumentandolo voy desplazando la X hacia el borde derecho del telefono*/
+}
+
+
+.cerrar{
+	margin-top: 400px;
+	text-align: center;
+}
+/*ELEMENTOS LISTA*/
+ul{
+	list-style-type: none; /*para que no salga el punto*/
+	margin-right:40px;
+	margin-top:40px;
+}
+
+li{
+	font-size: 14pt;
+	font-family: 'Open Sans', sans-serif;
+	margin-right:40px;
+}
+
+.btn{ /*boton de cerrar*/
+    display: inline-block;
+    text-decoration: none;
+    color: #56635D;
+    width: 200px;
+    height: 50px;
+    border-radius: 18px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    font-size:20px;
+    line-height: 50px; /*el texto del boton centrado*/
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #876e7d 100%);
+    background-image: linear-gradient(#ada8b6 0%, #876e7d 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);  
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.cerrarlista{
+	margin-top: 400px;
+	text-align: center;
+}
+
+</style>

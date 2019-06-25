@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="lista.css">
+
+<html>
+
+<head>
+<script src="https://kit.fontawesome.com/2d8b91f482.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>Mi lista de alergenos</h1>
+
+<ul id="myUl"></ul>
+
+<button class="open-button" onclick="openForm()"><i class="fas fa-plus iconmas"></i></button> <!-- boton añadir alergeno-->
+<button class="atras" onclick="location.href = 'boton.html';"><i class="fas fa-arrow-left iconatras"></i></button><!-- boton ir atras-->
+
+
+<div class="form-popup" id="myForm">
+  <form class="form-container">
+
+    <h1>Nuevo alergeno</h1>
+    
+    <input id="newItem" type="text" placeholder="Introduce alergeno"/>
+    
+    <div class="botones">
+    <button type="button" class="btn_cancel" onclick="closeForm()">DESCARTAR</button>
+	<button onclick="add()" class="addBtn">GUARDAR</button>
+	</div>
+	
+    
+  </form>
+</div>
+
+</body>
+
+</html>
+
+
+<script>
+
+document.getElementsByClassName("atras").onclick = function () {
+    location.href = "boton.html";
+};
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+var ul = document.getElementById("myUl");
+
+function add() {
+  var item = document.getElementById("newItem").value;
+  var itemTxt = document.createTextNode(item);
+  var li = document.createElement("li");
+  var btn = document.createElement("button");
+  btn.id = "put";
+  btn.className ="fas fa-trash-alt icon";
+  var btnx = document.createTextNode("");
+    
+  btn.setAttribute("onclick", "remove()");
+  btn.appendChild(btnx);
+  li.appendChild(itemTxt);
+  li.appendChild(btn);
+  ul.appendChild(li);
+  localStorage["list"] = ul.innerHTML
+}
+
+function remove() {
+  var task = this.event.currentTarget.parentNode;
+  ul.removeChild(task);
+  localStorage["list"] = ul.innerHTML // updating localstorage
+}
+
+if (localStorage["list"]) {
+  ul.innerHTML = localStorage["list"];
+}
+
+</script>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="resultado_secundario.css">
+
+<html>
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+	
+</head>
+
+<body>
+	
+	<h1>Resultado analisis</h1>
+	
+	<p>Ingredientes encontrados:</p>
+	
+	<div class="lista_ingredientes">
+	
+		<div id="uno">
+     		<!-- AQUI SALE EL INGREDIENTE 1 -->
+   		</div>
+
+    	<div id="dos">
+      		<!-- AQUI SALE EL INGREDIENTE 2  -->
+    	</div>
+    
+    	<div id="tres">
+      		<!-- AQUI SALE EL INGREDIENTE 3  -->
+    	</div>
+    
+     	<div id="cuatro">
+      		<!-- AQUI SALE EL INGREDIENTE 4  -->
+    	</div>
+    
+     	<div id="cinco">
+      		<!-- AQUI SALE EL INGREDIENTE 5  -->
+    	</div>
+    	
+    </div>
+    
+    <div class="cerrar">		<!-- cierra la ventana del resultado del analisis -->
+		<a href="#" class="btn" onclick="location.href = 'boton.html';">CERRAR</a>
+	</div>
+	
+	<script type="text/javascript">
+    	document.getElementsByClassName("btn").onclick = function () {
+        	location.href = "boton.html";
+    	};
+	</script>
+	
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+	var auno = [
+    	'Merluza',
+    	'Ternera',
+		'Salmon',
+    	'Pollo',
+    	'Gamba'
+	]
+	var ados = [
+    	'Huevo',
+    	'Leche',
+    	'Mayonesa',
+		'Vino',
+	]
+	var atres = [
+		'Tomate',
+    	'Pimiento',
+    	'Lechuga',
+		'Cebolla',
+	]
+	var acuatro = [
+    	'Ajo',
+    	'Soja',
+		'Pimienta',
+    	'Perejil',
+	]
+	var acinco = [
+    	'Tomillo',
+    	'Alcachofa',
+		'Mantequilla',
+    	'Harina',
+	]
+    	
+	var ingredientes = [];
+	
+	window.onload = function (ingredientes) {
+		ingredientes[0] = document.getElementById("uno").innerHTML = auno[Math.floor(Math.random()*auno.length)];
+		ingredientes[1] = document.getElementById("dos").innerHTML = ados[Math.floor(Math.random()*ados.length)];
+		ingredientes[2] = document.getElementById("tres").innerHTML = atres[Math.floor(Math.random()*atres.length)];
+		ingredientes[3] = document.getElementById("cuatro").innerHTML = acuatro[Math.floor(Math.random()*acuatro.length)];
+		ingredientes[4] = document.getElementById("cinco").innerHTML = acinco[Math.floor(Math.random()*acinco.length)];
+		
+		//estos valores los tengo que meter en un ARRAY
+		
+		//cojo el local storage (lista de alergenos con tags de html incrustadas
+    	var values = [],
+        	keys = Object.keys(localStorage),
+       		i = keys.length;
+
+    	while ( i-- ) {
+        	values.push( localStorage.getItem(keys[i]) );
+    	}
+
+    	//alert(values); //values es el string largo del local storage
+    	
+    	//lo transformo en un string
+    	var res = String(values);
+    	
+    	//no soy capaz de recorrer el array asi que compruebo uno a uno
+		var a = res.includes(ingredientes[0]);
+		if(a == true){
+			alert("Alergeno encontrado en el primer ingrediente.");
+		}
+		var b = res.includes(ingredientes[1]);
+		if(b == true){
+			alert("Alergeno encontrado en el segundo ingrediente.");
+		}
+		var c = res.includes(ingredientes[2]);
+		if(c == true){
+			alert("Alergeno encontrado en el tercer ingrediente.");
+		}
+		var d = res.includes(ingredientes[3]);
+		if(d == true){
+			alert("Alergeno encontrado en el cuarto ingrediente.");
+		}
+		var e = res.includes(ingredientes[4]);
+		if(e == true){
+			alert("Alergeno encontrado en el quinto ingrediente.");
+		}
+	}
+	
+</script>

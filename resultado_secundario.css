@@ -1,0 +1,59 @@
+html{
+	/*background-image: linear-gradient(green, black);*/
+	background-color:white;
+	height: 100%; /*para que se ajuste a la pantalla del móvil*/
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{ /*margen a 0 para que no quede borde blanco alrededor de la pagina*/
+	margin:0;
+}
+
+h1{
+	background-color: #00de5e;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin-top:0;
+	text-align:center;
+	font-size:35pt;
+}
+
+.lista_ingredientes{
+	font-size: 31pt;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+
+p{ /*"Ingredientes encontrados"*/
+	margin-left: 50px;
+	font-size: 35pt;
+	font-weight:600;
+}
+
+.btn{ /*boton de cerrar*/
+    display: inline-block;
+    text-decoration: none;
+    color: #56635D;
+    width: 450px;
+    height: 150px;
+    border-radius: 42px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    font-size:35pt;
+    line-height: 150px; /*el texto del boton centrado*/
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #859b91 100%);
+    background-image: linear-gradient(#ada8b6 0%, #859b91 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); 
+}
+
+.cerrar{
+	position:absolute;
+	bottom: 200px;
+	left: 265px;
+	text-align: center;
+}
+

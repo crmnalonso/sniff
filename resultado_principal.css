@@ -1,0 +1,93 @@
+html{
+	/*background-image: linear-gradient(green, black);*/
+	background-color:white;
+	height: 100%; /*para que se ajuste a la pantalla del móvil*/
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{ /*margen a 0 para que no quede borde blanco alrededor de la pagina*/
+	margin:0;
+}
+
+h1{
+	background-color: #00de5e;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin-top:0;
+	text-align:center;
+	font-size:35pt;
+}
+
+#alimento, #estado{
+	margin-left: 50px;
+	margin-right: 50px;
+	font-size:31pt;
+}
+
+
+p{
+	margin-left: 50px;
+	font-size:35pt;
+	font-weight:600;
+}
+
+.btn{ /*boton de cerrar*/
+    display: inline-block;
+    text-decoration: none;
+    color: #56635D;
+    width: 450px;
+    height: 150px;
+    border-radius: 42px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    font-size:35pt;
+    line-height: 150px; /*el texto del boton centrado*/
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #859b91 100%);
+    background-image: linear-gradient(#ada8b6 0%, #859b91 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);  
+}
+
+
+.cerrar{
+	position:absolute;
+	bottom: 200px;
+	left: 265px;
+	text-align: center;
+}
+
+#play{ /*boton de hablar*/
+    display: inline-block;
+    text-decoration: none;
+    color: #00B24A;
+    width: 450px;
+    height: 350px;
+    border-radius: 42px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    font-size:35pt;
+    line-height: 150px; /*el texto del boton centrado*/
+    background-image: -webkit-linear-gradient(#9de562 0%, #00DE5E 100%); /*el claro de arriba, el oscuro de abajo */
+    background-image: linear-gradient(#9de562 0%, #00DE5E 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);  
+}
+
+.habla{
+	position:absolute;
+	bottom: 400px;
+	left: 265px;
+	text-align: center;
+}
+
+.icon{ /* el dibujito */
+  text-align: center;
+  margin-top: 20px;
+  font-size: 250px;
+}
+
+

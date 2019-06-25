@@ -1,0 +1,131 @@
+<html>
+    <html>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <head>
+            <link rel="stylesheet" href="example.css">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+            <style>
+                body{
+                    background:white; /*COLOR DE UN TROZO DEL FONDO*/
+                }
+                a {
+                    display: inline-block;
+    				text-decoration: none;
+    				color: #b90437;
+    				width: 450px;
+    				height: 150px;
+    				border-radius: 42px;
+    				text-align: center;
+    				vertical-align: middle;
+    				overflow: hidden;
+    				font-weight: bold;
+    				font-size: 35pt;
+    				line-height: 150px; /*el texto del boton centrado*/
+    				background-image: -webkit-linear-gradient(#f24f6a 0%, #f21b3f 100%); /*el claro de arriba, el oscuro de abajo */
+    				background-image: linear-gradient(#f24f6a 0%, #f21b3f 100%);
+    				text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); 
+    				
+    				font-family: 'Open Sans', sans-serif;
+                }
+                
+                .cerrar{
+                	text-align:center;
+					margin-top:1400px;
+				}
+
+                a:hover 
+                {
+                    background-color: #FF2211;
+                }
+
+                .radar {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    border-radius: 50%;
+                    border: 10px solid #fff;
+                    width: 50px;
+                    height: 50px;
+                    -webkit-transform: translate(-50%,-50%);
+                    -moz-transform: translate(-50%,-50%);
+                    transform: translate(-50%,-50%);
+                    -webkit-animation: radar 2s infinite;
+                    animation: radar 2s infinite;
+                    opacity: 0;
+                    overflow:hidden;
+                }
+
+                .radar:nth-child(2) {
+                    animation-delay: .4s;
+                }
+
+                .radar:nth-child(3) {
+                    animation-delay: .9s;
+                }
+
+                .radar:nth-child(4) {
+                    animation-delay: .15s;
+                }
+
+                .bg
+                {
+                    background:white; /*COLOR DE UN TROZO DEL FONDO*/
+                    width:100%;
+                    height:100%;
+                    overflow: hidden; 
+                    -webkit-transform: translate3d(0,0,0);
+                    -moz-transform: translate3d(0,0,0);
+                    transform: translate3d(0,0,0);
+                }
+                @keyframes radar{
+                    0%{
+                        width:50px;
+                        height:50px;
+                        border:40px solid #f21b3f; /*COLOR DE LAS ONDAS*/
+                        opacity:0
+                    }50%{
+                        opacity:.1
+                    }
+                    90%{
+                        width:750px;
+                        height:750px
+                    }
+                    90%,100%{
+                        border:2px 
+                        solid #f21b3f;/*COLOR DE LAS ONDAS*/
+                        opacity:0
+                    }100%{
+                        width:1500px;
+                        height:1500px
+                    }
+                }
+                
+            </style>
+        </head>
+        <body>        
+            <section>
+                <div class="bg">
+                    <div class="radar">
+                    </div>
+                    <div class="radar">
+                    </div>
+                    <div class="radar">
+                    </div>
+                    <div class="radar">
+                    </div>
+                    
+                    <!--aqui iria el boton de cerrar-->
+                    <div class="cerrar">		<!-- cierra la ventana del resultado del analisis -->
+						<a href="#" class="btn" onclick="location.href = 'boton2.html';">CERRAR</a>
+					</div>
+					
+					<script>
+						document.getElementsByClassName("btn").onclick = function () {
+        					location.href = "boton2.html";
+    					};
+					</script>
+		</div>
+            </section>
+        </body>
+    </html>

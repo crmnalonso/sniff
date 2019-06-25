@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<!-- MODO ALERTA INCIDENCIA-->
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="boton2.css">
+
+<head>
+	<!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/2d8b91f482.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+
+<body>
+
+<div id="welcomeDiv">
+	<div class="principal">		<!-- activa el analisis de una alimento -->
+		<a href="#" class="btn" onclick="location.href = 'resultado_alerta.html';"><i class="fas fa-search icon"></i></a>
+	</div>
+	
+</div>		
+	<div class="secundario">	<!-- activa el analisis de un plato y lista de alérgenos -->
+		<a href="#" class="btnsecundario" onclick="location.href = 'error_analisis.html';"><i class="fas fa-sync-alt iconsecundario"></i></i></a>
+		<i id="btnvolumen" onclick="myFunction(this)" class="fa fa-bell-o"></i>
+	</div>
+	
+
+<script>
+function myFunction(x) {
+  x.classList.toggle("fa-bell-slash-o");
+}
+</script>
+	<!-- la class lista es la que centra el boton que si no se va por ahi -->
+	<div class="lista"> 
+		<a href="#" class="btnopciones" onclick="openForm()"><i class="fas fa-plus iconopciones"></i></a>
+		<div class="popup" id="myForm">			<!-- lleva a las opciones -->
+			<form class="form-container">
+				<a href="#" class="btnmodo1" onclick="location.href = 'boton1.html';"><i class="fas fa-spray-can iconmodo1"></i></a>
+				<a href='#' class="btnmodo2" onclick="location.href = 'boton.html';"><i class="fas fa-utensils iconmodo2"></i></a> <!-- el de la comida-->
+				<a href="#" class="btninfo" onclick="location.href = 'info.html';"><i class="fas fa-info iconinfo"></i></a>
+				<a href='#' class="btncancel" onclick="closeForm()"><i class="fas fa-times iconcancel"></i></a>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+	<script type="text/javascript">
+		
+		document.getElementsByClassName("btn").onclick = function () {
+        	location.href = "resultado_alerta.html";
+    	};
+    	
+
+    	document.getElementsByClassName("btnradar").onclick = function () {
+        	location.href = "radar.html";
+    	};
+
+	
+    	document.getElementsByClassName("btnsecundario").onclick = function () {
+        	location.href = "error_analisis.html";
+    	};
+    	
+    	document.getElementsByClassName("btnmodo1").onclick = function () {
+        	location.href = "boton1.html";
+    	};
+    	
+    	document.getElementsByClassName("btnmodo2").onclick = function () {
+        	location.href = "boton2.html";
+    	};
+    	
+    	document.getElementsByClassName("btninfo").onclick = function () {
+        	location.href = "info.html";
+    	};
+
+		function openForm() {
+			
+  			document.getElementById("myForm").style.display = "block";
+  			document.getElementById("welcomeDiv").classList.add('MyClass');
+		}
+
+		function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+			document.getElementById("welcomeDiv").classList.remove('MyClass');
+		}
+	</script>
+
+<style>
+
+/* The popup form - hidden by default */
+
+.MyClass{ /*cambia a esta clase para que el background se ponga blurry*/
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  width:100%;
+  height:100%;
+}
+
+/* EL RECTANGULO QUE SALE AL PULSAR EL BOTON */
+.form-container {
+  width:100%;
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  background-color: white;
+  position: absolute; bottom: 0; /*con esto sale por debajo los botones de las opciones*/
+}
+
+/* BOTON PARA CABIAR MODO 1 PERFUME*/
+.btnmodo1{
+    display: inline-block;
+    text-decoration: none;
+    color: #8b3d8b;
+    width: 280px;
+    height: 280px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#db6999 0%, #b768a2 100%);
+    background-image: linear-gradient(#db6999 0%, #b768a2 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    
+    margin-bottom: 0px;
+    
+}
+
+.iconmodo1{ /* el dibujito */
+  text-align: center;
+  margin-top: 50px;
+  font-size: 180px;
+}
+
+.btnmodo1:active{
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: -webkit-linear-gradient(#db6999 0%, #b768a2 100%);
+    background-image: linear-gradient(#db6999 0%, #b768a2 100%);
+}
+
+/* BOTON PARA CABIAR MODO 2 COMIDA*/
+.btnmodo2{
+    display: inline-block;
+    text-decoration: none;
+    color: #00b24a;
+    width: 280px;
+    height: 280px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#9de562 0%, #00de5e 100%);
+    background-image: linear-gradient(#9de562 0%, #00de5e 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    
+    margin-bottom: 200px;
+    
+}
+
+.iconmodo2{ /* el dibujito */
+  text-align: center;
+  margin-top: 50px;
+  font-size: 180px;
+}
+
+.btnmodo2:active{
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: -webkit-linear-gradient(#9de562 0%, #00de5e 100%);
+    background-image: linear-gradient(#fed6e3 0%, #00de5e 100%);
+}
+
+/* BOTON PARA MOSTRAR INFORMACION */
+.btninfo{
+    display: inline-block;
+    text-decoration: none;
+    color: #1931e8;
+    width: 280px;
+    height: 280px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#5da9e9 0%, #5b6be8 100%);
+    background-image: linear-gradient(#5da9e9 0%, #5b6be8 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    
+}
+
+.iconinfo{ /* el dibujito */
+  text-align: center;
+  margin-top: 50px;
+  font-size: 180px;
+}
+
+.btninfo:active{
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: -webkit-linear-gradient(#5da9e9 0%, #5b6be8 100%);
+    background-image: linear-gradient(#5da9e9 0%, #5b6be8 100%);
+}
+
+/* BOTON PARA CERRAR EL MENU DE OPCIONES*/
+.btncancel{
+    display: inline-block;
+    text-decoration: none;
+    color: #56635D;
+    width: 300px;
+    height: 300px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #859b91 100%);
+    background-image: linear-gradient(#ada8b6 0%, #859b91 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    
+    margin-bottom: 60px;
+}
+
+.iconcancel{ /* el dibujito */
+  text-align: center;
+  margin-top: 60px;
+  font-size: 180px;
+}
+
+.btncancel:active{
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: -webkit-linear-gradient(#ada8b6 0%, #859b91 100%);
+    background-image: linear-gradient(#ada8b6 0%, #859b91 100%);
+}
+
+html{
+background-color:white;
+}
+
+</style>
